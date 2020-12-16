@@ -6,8 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
-c.cart-item {
+.cart-item {
   display: inline-flex;
   margin: 20px 10px;
 }
@@ -21,4 +20,7 @@ c.cart-item {
   height: 25px;
   width: 25px;
   margin-right: 10px;
+}
+.action-icons:hover {
+  cursor: pointer;
 }
