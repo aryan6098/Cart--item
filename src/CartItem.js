@@ -1,17 +1,7 @@
 import React from 'react';
 
 class CartItem extends React.Component {
-    constructor()
-    {
-        super();
-        this.state = {
-            price: 999,
-            title : 'Mobile Phone',
-            qty : 1,
-            img : ''
-        }
-        //this.increaseQuantity = this.increaseQuantity.bind(this);
-    }
+   
     increaseQuantity = () =>
     {
      // this.state.qty +=1;
@@ -28,8 +18,22 @@ class CartItem extends React.Component {
           }
         })
       }
+      decreaseQuantity = ()=>
+      {
+        const {qty} = this.state;
+        if(qty ===0)
+        {
+          return;
+        }
+        this.setState((prevState)=>{
+          return{
+            qty: prevState.qty - 1
+          }
+        })
+      }
   render () {
-      const {title,price,qty} = this.state;
+    console.log(this.props,this.props);
+      const {title,price,qty} = this.props.products;
     return (
       <div className="cart-item">
         <div className="left-block">
@@ -44,7 +48,10 @@ class CartItem extends React.Component {
             <img alt="increase" className="action-icons"
             onClick = {this.increaseQuantity}
             src="https://www.flaticon.com/premium-icon/icons/svg/3114/3114793.svg"></img>
-            <img alt="decrease" className="action-icons" src="https://as1.ftcdn.net/jpg/03/73/49/86/500_F_373498649_nBxauQ0ipBSVrVcMpWWVmTpXu3BLvRyY.jpg"></img>
+            <img alt="decrease" 
+            className="action-icons" 
+            onClick = {this.decreaseQuantity}
+            src="https://as1.ftcdn.net/jpg/03/73/49/86/500_F_373498649_nBxauQ0ipBSVrVcMpWWVmTpXu3BLvRyY.jpg"></img>
             <img alt="delete" className="action-icons" src="https://www.flaticon.com/premium-icon/icons/svg/2907/2907762.svg"></img>
           </div>
         </div>
